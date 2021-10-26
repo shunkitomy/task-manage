@@ -45,25 +45,13 @@
       const app = new Vue({
         el: "#app",
         data: {
-          list: [
-            {
-              text: "ひき肉を300g買う",
-              isDone: false,
-            },
-            {
-              text: "ほうれん草を１束買う",
-              isDone: false,
-            },
-            {
-              text: "ピーマンを２個買う",
-              isDone: false, //trueを代入しなくても成立する？
-            },
-          ],
+          list: [],
           inputTodo: "",
         },
         methods: {
           addTodo: function () {
-            this.list.push(this.inputTodo);
+            this.list.push({ text: this.inputTodo, isDone: false });
+            this.inputTodo = "";
           },
           deleteTodo: function (index) {
             this.list.splice(index, 1);
